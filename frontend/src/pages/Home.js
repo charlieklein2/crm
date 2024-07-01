@@ -17,7 +17,7 @@ const Home = () => {
             if (response.ok) {
                 setTutors(json)
                 const allCourses = json.flatMap(tutor => tutor.courses);
-                const uniqueCourses = [...new Set(allCourses)];
+                const uniqueCourses = [...new Set(allCourses)].sort();
                 setCourses(uniqueCourses);
             }
         }
@@ -28,7 +28,7 @@ const Home = () => {
 
     const handleFilter = async (selectedCourse, specifiedRate) => {
         const query = {
-            ...(selectedCourse && { courses: { $in: [selectedCourse] } }),
+            ...(selectedCourse && { courses: selectedCourse}),
             ...(specifiedRate && { rate: specifiedRate  })
         };
 
