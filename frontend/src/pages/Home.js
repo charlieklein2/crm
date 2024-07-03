@@ -27,6 +27,8 @@ const Home = () => {
 
 
     const handleFilter = async (selectedCourse, specifiedRate) => {
+        specifiedRate = specifiedRate + 1
+
         const query = {
             ...(selectedCourse && { courses: selectedCourse}),
             ...(specifiedRate && { rate: specifiedRate  })
