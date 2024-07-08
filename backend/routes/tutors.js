@@ -6,8 +6,12 @@ const {
     deleteTutor,
     updateTutor
 } = require('../controllers/tutorController')
+const requireAuth = require('../middleware/requireAuth')
 
 const router = express.Router()
+
+// requireAuth for all routes
+router.use(requireAuth)
 
 // GET / --> Gets all tutor documents
 router.get('/', getTutors)
