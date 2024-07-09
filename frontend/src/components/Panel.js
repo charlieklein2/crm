@@ -1,12 +1,20 @@
-import { useState} from 'react'
-
+import { useState } from 'react'
+import { useAuthContext } from '../hooks/useAuthContext'
+ 
 const Panel = ({ onFilter, courses }) => {
+    const { user } = useAuthContext()
+
     const [selectedCourse, setSelectedCourse] = useState('');
     const [selectedRate, setSelectedRate] = useState('');
     const [error, setError] = useState(null);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+
+        if (!user) {
+            setError('You must be logged in')
+            return
+        }
     
         try {
             const rate = parseFloat(selectedRate);

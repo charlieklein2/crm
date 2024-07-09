@@ -1,4 +1,5 @@
-import {useEffect, useState} from 'react'
+import { useEffect, useState } from 'react'
+import { useAuthContext } from '../hooks/useAuthContext'
 
 import TutorDetails from '../components/TutorDetails'
 import Panel from '../components/Panel'
@@ -9,9 +10,15 @@ const Home = () => {
     const [error, setError] = useState(null);
     const [courses, setCourses] = useState([]);
 
+    const { user } = useAuthContext()
+
     useEffect(() => {
         const fetchTutors = async () => {
-            const response = await fetch('/api/tutors')
+            const response = await fetch('/api/tutors', {
+                headers: {
+                    'Authorization': `Bearer ${user.token}`
+                }
+            })
             const json = await response.json()
 
             if (response.ok) {
@@ -19,11 +26,13 @@ const Home = () => {
                 const allCourses = json.flatMap(tutor => tutor.courses);
                 const uniqueCourses = [...new Set(allCourses)].sort();
                 setCourses(uniqueCourses);
-            }
+            } 
         }
-        
-        fetchTutors()
-    }, [])
+
+        if (user) {
+            fetchTutors()
+        }
+    }, [user])
 
 
     const handleFilter = async (selectedCourse, specifiedRate) => {
@@ -41,7 +50,8 @@ const Home = () => {
         const response = await fetch(`/api/tutors?${queryString}`, {
             method: 'GET',
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${user.token}`
             }
         });
 
