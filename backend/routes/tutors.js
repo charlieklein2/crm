@@ -10,6 +10,8 @@ const requireAuth = require('../middleware/requireAuth')
 
 const router = express.Router()
 
+router.post('/', createTutor)
+
 // requireAuth for all routes
 router.use(requireAuth)
 
@@ -20,7 +22,7 @@ router.get('/', getTutors)
 router.get('/:id', getTutor)
 
 // POST / --> Creates a tutor documents
-router.post('/', createTutor)
+
 
 // DELETE /:id --> Deletes a single tutor document
 router.delete('/:id', deleteTutor)

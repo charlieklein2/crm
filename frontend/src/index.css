@@ -1,18 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
 :root {
-  --primary: #00165a;
+  --primary: #3966d7;
   --error: #e7195a;
 }
 
 body {
-  background: #f1f1f1;
+  background: #fafafa;
   margin: 0;
   font-family: "Montserrat";
 }
 
 header {
-  background: #00165a;
+  background: var(--primary);
 }
 
 header .container {
@@ -52,23 +52,42 @@ header a {
 }
 .tutor-details h4 {
   margin: 0 0 10px 0;
-  font-size: 1.2em;
+  font-size: 16px;
   color: var(--primary);
 }
 .tutor-details p {
   margin: 0;
-  font-size: 0.9em;
+  font-size: 12px;
   color: #555;
 }
-.tutor-details span {
-  position: absolute;
-  top: 20px;
+.tutor-details Button {
+  top: 0px;
   right: 20px;
   cursor: pointer;
-  background: #f1f1f1;
   padding: 6px;
-  border-radius: 50%;
-  color: #333;
+  /* border-radius: 50%; */
+  color: var(--primary);
+  margin-top: 10px;
+  margin-left: 15px;
+  font-family: inherit;
+  position: absolute;
+  top: 5px;
+  right: 20px;
+}
+
+.tutor-details Button:hover {
+  background-color: #fff;
+}
+
+#send {
+  background-color: #3966d7;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  border-radius: 4px;
+  font-family: inherit;
+  font-size: 12px;
+  cursor: pointer;
 }
 
 .break {
@@ -103,6 +122,14 @@ form.filter {
   box-shadow: 2px 2px 5px rgba(0,0,0,0.05);
 }
 
+form.filter h3 {
+  font-size: 16px;
+}
+
+form.filter label {
+  font-size: 12px;
+}
+
 form button {
   background: var(--primary);
   border: 0;
@@ -111,6 +138,7 @@ form button {
   font-family: "Montserrat";
   border-radius: 4px;
   cursor: pointer;
+  font-size: 12px;
 }
 div.error {
   padding: 10px;
@@ -156,4 +184,30 @@ form.signup, form.login {
   padding: 20px;
   background: #fff;
   border-radius: 4px;
+  resize: vertical;
+}
+
+form.signup #linebreak {
+  border-bottom: 1px solid #ddd;
+  padding-top: 20px;
+  margin-bottom: 25px;
+}
+
+#bio {
+  width: 95%;
+  height: 100px;
+  resize: none;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding: 10px;
+  font-family: "Montserrat";
+}
+
+.home .tutors h5 {
+  padding-left: 25px;
+  padding-top: 25px;
+  font-size: 12px;
+  text-decoration-style: none;
 }

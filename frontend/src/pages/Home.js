@@ -4,6 +4,7 @@ import { useAuthContext } from '../hooks/useAuthContext'
 import TutorDetails from '../components/TutorDetails'
 import Panel from '../components/Panel'
 
+
 const Home = () => {
     const [tutors, setTutors] = useState(null)
     const [filteredTutors, setFilteredTutors] = useState(null)
@@ -75,10 +76,11 @@ const Home = () => {
                     <TutorDetails key={tutor._id} tutor={tutor} />
                 ))}
                 {filteredTutors !== null && filteredTutors.length === 0 && (
-                    <p>No tutors found</p>
+                    <h5>No tutors found. Try searching for a higher maximum hourly rate.</h5>
                 )}
             </div>
             <Panel onFilter={handleFilter} courses={courses} /> 
+        
             {error && <div className="error">{error}</div>}
         </div>
     )
