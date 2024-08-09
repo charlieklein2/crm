@@ -10,6 +10,10 @@ const User = require('./models/userModel')
 const app = express()
 
 // middleware
+app.use(cors({
+  origin: 'https://calbridge-tutoring.onrender.com/', 
+}))
+
 app.use(express.json())
 
 app.use((req, res, next) => {
