@@ -15,7 +15,7 @@ const Home = () => {
 
     useEffect(() => {
         const fetchTutors = async () => {
-            const response = await fetch('/api/tutors', {
+            const response = await fetch(`https://calbridge.onrender.com/api/tutors`, {
                 headers: {
                     'Authorization': `Bearer ${user.token}`
                 }
@@ -48,7 +48,7 @@ const Home = () => {
 
         console.log("Here: " + queryString)
 
-        const response = await fetch(`/api/tutors?${queryString}`, {
+        const response = await fetch(`https://calbridge.onrender.com/api/tutors?${queryString}`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
