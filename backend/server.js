@@ -5,6 +5,7 @@ const mongoose = require('mongoose')
 const tutorRoutes = require('./routes/tutors')
 const userRoutes = require('./routes/user')
 const User = require('./models/userModel')
+const cors = require('cors')
 
 // express app
 const app = express()
