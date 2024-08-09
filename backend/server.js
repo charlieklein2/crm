@@ -12,7 +12,7 @@ const app = express()
 
 // middleware
 app.use(cors({
-  origin: 'https://calbridge-tutoring.onrender.com/', 
+  origin: 'https://calbridge-tutoring.onrender.com', 
 }))
 
 app.use(express.json())
