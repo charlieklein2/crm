@@ -46,8 +46,6 @@ const Home = () => {
 
         const queryString = new URLSearchParams(query).toString();
 
-        console.log("Here: " + queryString)
-
         const response = await fetch(`https://calbridge.onrender.com/api/tutors?${queryString}`, {
             method: 'GET',
             headers: {
