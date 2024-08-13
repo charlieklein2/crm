@@ -46,8 +46,6 @@ const TutorSignup = () => {
                 if (courseOne) { courses.push(courseOne) }
                 if (courseTwo) { courses.push(courseTwo) }
                 if (courseThree) { courses.push(courseThree) }
-
-                console.log(courses)
                 
                 const requestBody = {
                     "name": name,
